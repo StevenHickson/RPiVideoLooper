@@ -7,4 +7,4 @@ fi
 cp -a startvideos.sh /home/pi/
 cp -a startfullscreen.sh /home/pi/
 cp -a videoloop /etc/init.d/
-update-rc.d /etc/init.d/videoloop defaults
+update-rc.d videoloop defaults
