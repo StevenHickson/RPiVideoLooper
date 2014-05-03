@@ -6,7 +6,14 @@ declare -A vids
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
+usb=`cat /boot/looperconfig.txt | grep usb | cut -c 5- | tr -d '\r' | tr -d '\n'`
+
 FILES=/home/pi/videos/
+
+if [[ $usb -eq 1 ]]; then
+    FILES=/media/USB/videos/
+fi
+
 current=0
 for f in `ls $FILES | grep ".mp4$\|.avi$\|.mkv$\|.mp3$\|.mov$\|.mpg$\|.flv$\|.m4v$"`
 do

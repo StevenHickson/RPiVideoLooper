@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# cron script to save a update local database.
+#
+# Written by Steven Hickson <help@stevenhickson.com> for the playvideo project.
+#
+PATH=/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+
+@reboot root /home/pi/autostart.sh
