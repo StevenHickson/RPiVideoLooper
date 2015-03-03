@@ -10,4 +10,4 @@ cp -a videoloop /etc/init.d/
 cp -a autostart.sh /home/pi/
 cp -a videoloop_starter /etc/cron.d/
 cp -a looperconfig.txt /boot/
-#update-rc.d videoloop defaults
+update-rc.d videoloop defaults
