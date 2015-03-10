@@ -6,12 +6,22 @@ declare -A vids
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
-usb=`cat /boot/looperconfig.txt | grep usb | cut -c 5- | tr -d '\r' | tr -d '\n'`
+configs=`cat /boot/looperconfig.txt`
+usb=`echo "$configs" | grep usb | cut -c 5- | tr -d '\r' | tr -d '\n'`
+audio_source=`echo "$configs" | grep audio_source | cut -c 14- | tr -d '\r' | tr -d '\n'`
+seamless=`echo "$configs" | grep seamless | cut -c 10- | tr -d '\r' | tr -d '\n'`
 
 FILES=/home/pi/videos/
 
 if [[ $usb -eq 1 ]]; then
     FILES=/media/USB/videos/
+fi
+
+if [ -n "$seamless" ] && [[ ! "$seamless" -eq 0 ]]; then
+    #run the seamless looper
+    echo "seamless isn't 0"
+    `/opt/vc/src/hello_pi/hello_video/hello_video.bin "$FILES$seamless"`
+    exit 0
 fi
 
 current=0
@@ -38,6 +48,6 @@ else
 		current=0
 	fi
 
-	/usr/bin/omxplayer -r -o hdmi "$FILES${vids[$current]}"
+	/usr/bin/omxplayer -r -o "$audio_source" "$FILES${vids[$current]}"
 fi
 done

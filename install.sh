@@ -10,4 +10,14 @@ cp -a videoloop /etc/init.d/
 cp -a autostart.sh /home/pi/
 cp -a videoloop_starter /etc/cron.d/
 cp -a looperconfig.txt /boot/
-#update-rc.d videoloop defaults
+update-rc.d videoloop defaults
+
+echo "Use NTFS USB Key? y/n"
+read option
+if [ $option == "y" ] || [ $option == "Y" ] ; then
+    apt-get update && apt-get install ntfs-3g
+    mkdir /media/USB
+    chmod a+r /media/USB
+    echo "/dev/sda1	/media/USB	ntfs-3g	defaults,noatime,nodiratime 	0	0" >> /etc/fstab
+    echo "Done!" you will need to reboot after this
+fi
