@@ -16,4 +16,4 @@ You will have to use the update-rc.d script to set it to start on boot if you ar
 The install script is available if you don't want to download the image.
 
 The image can be downloaded here:
-https://docs.google.com/file/d/0Bx2uFItyJkdlcVBIVjZjRDhjYmc/edit?usp=sharing
+https://mega.nz/#!5IsgnSja!UaEbsc3byFuMD6psgz3CuxcwB0x8SfdqgcDxqgK1gE4
