@@ -42,12 +42,12 @@ if pgrep omxplayer > /dev/null
 then
 	echo 'running'
 else
-	let current+=1
 	if [ $current -ge $max ]
 	then
 		current=0
 	fi
 
 	/usr/bin/omxplayer -r -o "$audio_source" "$FILES${vids[$current]}"
+	let current+=1
 fi
 done
