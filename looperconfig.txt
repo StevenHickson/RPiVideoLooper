@@ -1,2 +1,3 @@
 autostart=1
 usb=0
+audio_source=hdmi
